@@ -21,8 +21,7 @@ func all(items []account, predicate func(item account) bool) bool {
 }
 
 func any(items []account, predicate func(item account) bool) bool {
-	increment := index(items, predicate)
-	if increment != -1{
+	if index(items, predicate) != -1{
 		return true
 	}
 	return false
