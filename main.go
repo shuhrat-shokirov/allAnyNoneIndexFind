@@ -35,17 +35,12 @@ func none(items []account, predicate func(item account) bool) bool {
 }
 
 func index(items []account, predicate func(item account) bool) int {
-	increment := -1
-	kol := 0
 	for index, item := range items {
 		if predicate(item) {
-			if kol == 0{
-				increment = index
-			}
-			kol++
+			return index
 		}
 	}
-	return increment
+	return -1
 }
 func find(items []account, predicate func(item account) bool) (account, error) {
 	increment := index(items, predicate)
